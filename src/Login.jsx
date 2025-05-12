@@ -71,9 +71,9 @@ export default function SignInForm() {
             type="submit"
             className="w-full bg-gradient-to-r from-[#EF5757] to-[#EF8758] text-white py-2 rounded-md font-medium hover:opacity-90"
           >
-            <Link to="/home">
+            
             Sign in
-            </Link>
+            
            
           </button>
 

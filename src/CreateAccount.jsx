@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Eye from './Eye';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateAccount = () => {
+  const navigate = useNavigate(); // ✅ Initialize navigate
+
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -39,8 +43,8 @@ const CreateAccount = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Proceed to next step
       console.log('Form submitted:', form);
+      navigate('/verify'); // ✅ Redirect only after validation passes
     }
   };
 
@@ -127,9 +131,9 @@ const CreateAccount = () => {
             type="submit"
             className="w-full bg-gradient-to-r from-[#EF5757] to-[#EF8758] text-white py-2 rounded-md font-medium hover:opacity-90 mb-4 mt-6"
           >
-            <Link to="/verify">
+            
             Next 
-            </Link>
+          
            
           </button>
         </form>
