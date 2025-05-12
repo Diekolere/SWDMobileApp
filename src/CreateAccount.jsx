@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const CreateAccount = () => {
-  const navigate = useNavigate(); // ✅ Initialize navigate
+  const navigate = useNavigate(); // Initialize navigate
 
   const [form, setForm] = useState({
     firstName: '',
@@ -44,7 +44,7 @@ const CreateAccount = () => {
     e.preventDefault();
     if (validate()) {
       console.log('Form submitted:', form);
-      navigate('/verify'); // ✅ Redirect only after validation passes
+      navigate('/verify'); //  Redirect only after validation passes
     }
   };
 
