@@ -5,6 +5,14 @@ import { FaHome,   FaUser, FaCog } from 'react-icons/fa';
 
 
 export default function Home() {
+  const [showBalance, setShowBalance] = React.useState(true);
+const accountNumber = "8192017482";
+
+const handleCopy = () => {
+  navigator.clipboard.writeText(accountNumber);
+  alert("Account number copied!");
+};
+
   return (
     <div className="bg-gradient-to-tr from-[#141414] via-[#141414] to-[#b05744]/30 h-[750px] flex items-center justify-center text-white">
       <div className="relative bg-[#1a1a1a] p-6 rounded-xl max-w-sm w-full shadow-lg h-[740px] ">
@@ -33,14 +41,48 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Image Section */}
-          <div className="flex justify-center mt-4">
-            <img
-              src="/images/Frame 36608.png"
-              alt="Dashboard Graphic"
-              className="w-full max-w-md object-cover rounded"
-            />
-          </div>
+          {/* Wallet Info Card Section */}
+<div className="flex justify-center mt-4">
+  <div className="bg-gradient-to-r from-[#e94b6f] to-[#f59e4d] rounded-xl px-4 py-3 flex items-center justify-between w-full max-w-md text-white shadow-lg">
+    {/* Left: Wallet Balance */}
+    <div className="flex flex-col">
+      <span className="text-xs text-white/70 font-medium">WALLET BALANCE</span>
+      <div className="flex items-center gap-2 mt-1">
+        <span className="text-xl font-semibold">
+          {showBalance ? 'NGN 50,000' : '•••••••'}
+        </span>
+        <button onClick={() => setShowBalance(!showBalance)}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {showBalance ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.025 10.025 0 012.038-3.368M15 12a3 3 0 11-6 0 3 3 0 016 0zM3 3l18 18" />
+            )}
+          </svg>
+        </button>
+      </div>
+      <span className="text-xs text-white/70 mt-1">Cashback <span className="text-white font-medium">₦341.20</span></span>
+    </div>
+
+    {/* Divider */}
+    <div className="h-10 w-px bg-white/40 mx-3"></div>
+
+    {/* Right: Moniepoint Info */}
+    <div className="flex flex-col">
+      <span className="text-xs font-medium">MONIEPOINT</span>
+      <div className="flex items-center mt-1">
+        <span className="font-semibold text-sm mr-2">{accountNumber}</span>
+        <button onClick={handleCopy} className="text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8l6 6v8a2 2 0 01-2 2h-2" />
+          </svg>
+        </button>
+      </div>
+      <span className="text-xs text-white/70 mt-1">Deposit Fee: ₦20</span>
+    </div>
+  </div>
+</div>
+
 
           {/* Action Buttons */}
           <div className="mt-6 flex justify-between items-center">

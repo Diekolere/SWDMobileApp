@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const VerifyEmail = () => {
   const inputs = useRef([]);
@@ -33,6 +33,7 @@ const VerifyEmail = () => {
     <div className="bg-gradient-to-tr from-[#141414] via-[#141414] to-[#b05744]/40 min-h-screen flex items-center justify-center px-4">
       <div className="bg-[#141414] p-6 rounded-xl max-w-sm w-full text-white shadow-lg">
         <button className="text-sm text-white mb-4">&larr; Back</button>
+
         <h2 className="text-xl font-semibold mb-2 mt-15 -tracking[-0.2em]">Verify your email</h2>
         <p className="text-sm text-gray-300 mb-6 mt-4 -tracking[-0.2em]">
           Please enter the OTP sent to <br />
@@ -45,7 +46,9 @@ const VerifyEmail = () => {
           {[0, 1, 2].map((i) => (
             <input
               key={i}
-              type="password"
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*"
               maxLength={1}
               ref={(el) => (inputs.current[i] = el)}
               onInput={(e) => handleInput(e, i)}
@@ -61,7 +64,9 @@ const VerifyEmail = () => {
           {[3, 4, 5].map((i) => (
             <input
               key={i}
-              type="password"
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*"
               maxLength={1}
               ref={(el) => (inputs.current[i] = el)}
               onInput={(e) => handleInput(e, i)}
@@ -73,17 +78,17 @@ const VerifyEmail = () => {
 
         {/* Verify Button */}
         <button className="w-full py-2 rounded mt-50 bg-gradient-to-r from-[#EF5757] to-[#EF8758] text-white font-medium">
-         <Link to="/home">
-         Verify email
-         </Link>
+          <Link to="/home">
+            Verify email
+          </Link>
         </button>
 
         {/* Progress Bar and Label */}
         <div className="mt-6">
-        <div className="flex h-1 w-full gap-2">
-        <div className="w-1/2 bg-white rounded-l-full"></div>
-          <div className="w-1/2 bg-white rounded-r-full"></div>
-  </div>
+          <div className="flex h-1 w-full gap-2">
+            <div className="w-1/2 bg-white rounded-l-full"></div>
+            <div className="w-1/2 bg-white rounded-r-full"></div>
+          </div>
           <p className="text-center text-sm text-gray-400 mt-4">Email verification</p>
         </div>
       </div>
